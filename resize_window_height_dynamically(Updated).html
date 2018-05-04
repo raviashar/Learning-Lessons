@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<style>
+			html, body {width:100%; height:100%; padding: 0px; margin: 0px;}
+			header{ height: 70px; background: #ddd;}
+			#content { position: relative; z-index: 1;}
+			.icon-menu {overflow: hidden; position: absolute; background: #cccccc; left: 0px; top: 65px; z-index: 999;}
+			.icon-list{ padding: 5px 10px;}
+			.icon-toolbar{ height: 400px; overflow: hidden; position: relative; z-index: 1;}
+			.abc{ position: absolute; z-index: 999;}
+			.show-hide{ text-align: center;}
+			.down-arrow{ transform: rotate(180deg);}
+			.show-hide span{ height: 30px; width: 30px; display: block;}
+			.disabled{ opacity: 0.5;}
+		</style>
+	</head>
+	<body>
+		<header></header>
+    <div id="content">
+		<div class="icon-menu">
+			<div class="show-hide icon-list up-arrow disabled" id="up">
+					<span>
+						<svg viewBox="0 0 24 24" id="img__scroll-up" width="100%" height="100%"><path d="M9 17l3-3 3 3m-6-6l3-3 3 3" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+					</span>
+			</div>
+			<div class="icon-toolbar">
+				<div class="abc">
+					<div class="icon-list 1"><img src="images/background.png"></div>
+					<div class="icon-list 2"><img src="images/comments-list.png"></div>
+					<div class="icon-list 3"><img src="images/emoticons.png"></div>
+					<div class="icon-list 4"><img src="images/eraser.png"></div>
+					<div class="icon-list 5"><img src="images/redo.png"></div>
+					<div class="icon-list 6"><img src="images/highlighter.png"></div>
+					<div class="icon-list 7"><img src="images/iconfinder.png"></div>
+					<div class="icon-list 8"><img src="images/pan.png"></div>
+					<div class="icon-list 9"><img src="images/pen.png"></div>
+					<div class="icon-list 10"><img src="images/select.png"></div>
+					<div class="icon-list 11"><img src="images/shapes.png"></div>
+					<div class="icon-list 12"><img src="images/sticky-notes.png"></div>
+					<div class="icon-list 13"><img src="images/upload.png"></div>
+					<div class="icon-list 14"><img src="images/text.png"></div>
+					<div class="icon-list 15"><img src="images/shapes.png"></div>
+					<div class="icon-list 16"><img src="images/sticky-notes.png"></div>
+					<div class="icon-list 17"><img src="images/shapes.png"></div>
+					<div class="icon-list 18"><img src="images/background.png"></div>
+					<div class="icon-list 19"><img src="images/comments-list.png"></div>
+					<div class="icon-list 20"><img src="images/iconfinder.png"></div>
+					<div class="icon-list 21"><img src="images/shapes.png"></div>
+					<div class="icon-list 22"><img src="images/sticky-notes.png"></div>
+				</div>
+			</div>
+			<div class="show-hide icon-list down-arrow" id="down">
+					<span>
+						<svg viewBox="0 0 24 24" id="img__scroll-up" width="100%" height="100%"><path d="M9 17l3-3 3 3m-6-6l3-3 3 3" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+					</span>
+			</div>
+		</div>
+    </div>
+	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css"></script>
+	<script>
+	$(document).ready(function(){
+		var fixed_toolheight = $('.icon-toolbar').height();
+		console.log(fixed_toolheight);
+		
+		var total_toolheight = $('.icon-toolbar .abc').height();
+		console.log(total_toolheight);
+		
+		var difference_height = total_toolheight - fixed_toolheight;
+		//console.log(difference_height);
+		
+		var vheight = $('.icon-list').innerHeight();	
+		
+		var scroll_position = 0; 
+		
+		$('#down').click(function(){
+			$('.icon-toolbar').animate({scrollTop: '+=' + vheight},300);
+			
+			scroll_position += vheight;
+			
+			console.log(scroll_position);
+			
+			
+			if(scroll_position >= difference_height)
+			{
+				$('.down-arrow').addClass('disabled');
+				$('#down').css({'pointer-events':'none'});
+			}
+			else if(scroll_position >= 0)
+			{
+				$('.up-arrow').removeClass('disabled');
+				$('#up').css({'pointer-events':'auto'});
+			}
+		});
+		
+		$('#up').click(function(){
+			$('.icon-toolbar').animate({scrollTop: '-=' + vheight},300);
+			
+			scroll_position -= vheight;
+			console.log(scroll_position);
+			
+			if(scroll_position <= difference_height)
+			{
+				$('.down-arrow').removeClass('disabled');
+				$('#down').css({'pointer-events':'auto'});
+			}
+			
+			if(scroll_position <= 0)
+			{
+				$('.up-arrow').addClass('disabled');
+				$('#up').css({'pointer-events':'none'});
+			}
+			
+		});
+	
+	});
+	
+	
+//	$(window).resize(function() {
+		//$('#content').height($(window).height() - 10);
+		//console.log($(window).height());
+	//});
+	
+	//$(window).trigger('resize');
+	</script>
+
+
+	</body>
+</html>
