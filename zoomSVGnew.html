@@ -1,0 +1,369 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Demo Application - Angular Js</title>
+    <meta name="description" content="Demo Application - Angular Js">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="bootstrap.css">
+	<style>
+		body{ margin: 0px; padding: 0px; overflow: hidden; }
+		ul, li{ list-style-type: none; margin: 0px; padding: 0px;}
+		#abc {transform-origin: 0px 0px; transform: scale(1) translate(0px, 0px); position: relative; z-index: 1; height: 100%; width: 100%;}
+		.content{position: relative;}
+		.button-area{ position: absolute; z-index: 99; top: 0px; left: 0px;}
+		#svgelement{background: url(images/svgGrid_img.svg) repeat left top;}
+	</style>
+	
+ </head>
+<body>
+<div class="content">
+	<div class="button-area">
+		<ul>
+			<li><a onclick="zoomIn('zoomIn')">Zoom In</a></li>
+			<li><a onclick="zoomIn('zoomOut')">Zoom Out</a></li>
+			<li><span class="zoom-count" style="display: inline-block; color: #000000;"></span></li>
+		</ul>
+	</div>
+<div id="abc" >	   
+ <!--<svg id="svgelement"  width="100%" height="100%">-->
+	<svg id="svgelement" width="1920" height="1170"  viewBox="0 0 1920 1170">
+		<svg>
+			<!--<rect width="100%" height="100%" id="rect-element" fill="none" pointer-events="all" style="fill: rgb(0,0,0)"></rect>-->
+			<g id="svgGroup">
+				
+				<g class="mainObject elementContainer ggSvg-doc230-0" elementtype="rectangle" height="10" id="gSvg-doc230-0" width="10" x="0" y="250" data-tool="rectangle" style="vector-effect: non-scaling-stroke;" transform="matrix(1,0,0,1,0,0)">
+  
+					  <rect class="undefined rectsvg-doc230-0 ng-scope" fill="#07B4E2" height="100" stroke="#1111F3" stroke-dasharray="" stroke-width="1" width="100" x="150" y="200" z-index="0" object-text-area="rect" vector-effect="non-scaling-stroke" style="vector-effect: non-scaling-stroke;" rx="10" ry="10"></rect>
+					  
+					  <foreignObject class="foreignObjectundefined ng-scope" x="150" y="200" width="120.89999522672643" height="73.9457795244221" data-tool="Text Area" style="vector-effect: non-scaling-stroke;" transform="">
+						
+						<div xmlns="http://www.w3.org/1999/xhtml" class="object-div" style="font-size: 24px; font-family: Trebuchet MS, Helvetica, sans-serif; font-weight: bold; vector-effect: non-scaling-stroke;">
+						<div set-max-content="255" focus-preventer="" class="object-textarea" fb-option="$root.textSearch" maxlength="255" style="font-size: 17px; font-family: Trebuchet MS, Helvetica, sans-serif; font-weight: bold; vector-effect: non-scaling-stroke;">
+					whiteboard is not good application
+						</div>
+						</div>
+					  </foreignObject>
+					  </g>
+					  
+					  <foreignObject class="mainObject foreignObjectsvg-doc228-54 ng-scope" elementtype="richTextNew" height="96" id="svg-doc228-54" width="198.7607421875" x="0" y="250" z-index="54" data-tool="richTextNew" rich-text-new="" transform="translate(1,1) "><div style="width: calc(100% - 1px) !important; font-size: 20px; overflow-wrap: break-word; padding: 10px; text-align: center; height: calc(100% - 1px) !important; border-color: black; border-style: solid; border-width: 1px; min-height: 95px;" highlight-text="228" fb-option="$root.textSearch" class="full-width richTextBox ng-scope" xmlns="http://www.w3.org/1999/xhtml"><p>dasfaaaaaaaaaaaaadfadffadaadfadfadfadfadfadf</p><style type="text/css">.richTextBox p{-webkit-user-select:auto;-moz-user-select: auto;-ms-user-select: auto;user-select: auto;}</style></div></foreignObject>
+					  
+					  <g class="mainObject elementContainer ggSvg-doc230-1" elementtype="circle" height="10" id="gSvg-doc230-1" width="10" x="0" y="300" data-tool="circle" style="vector-effect: non-scaling-stroke;">
+					  <ellipse class="undefined ellipsesvg-doc230-1 ng-scope" cx="250" cy="200" fill="#F2F72B" id="svg-doc230-1" rx="76.87148346519349" ry="76.87148346519349" stroke="#1111F3" stroke-dasharray="" stroke-width="1" z-index="1" object-text-area="circle" vector-effect="non-scaling-stroke" style="vector-effect: non-scaling-stroke;"></ellipse>
+					  
+					  <foreignObject class="foreignObjectundefined ng-scope" data-tool="Text Area" x="220" y="180" width="91.2" height="91.2" style="vector-effect: non-scaling-stroke;" transform="">
+					  
+					  <div xmlns="http://www.w3.org/1999/xhtml" class="object-div" style="font-size: 24px; font-family: Trebuchet MS, Helvetica, sans-serif; font-weight: bold; vector-effect: non-scaling-stroke;">
+					  
+					  <div set-max-content="255" focus-preventer="" class="object-textarea" fb-option="$root.textSearch" maxlength="255" style="font-size: 14px; font-family: Trebuchet MS, Helvetica, sans-serif; font-weight: bold; vector-effect: non-scaling-stroke;">Realtime board is not good 
+					  </div>
+					  </div>
+					  </foreignObject>
+					  </g>
+				
+				<path class="mainObject pathsvg-doc2-137" d="M670.54364,115.34808c-50.55774,3.94982 -101.42853,3.67732 -152.13011,3.03113c-16.79769,-0.21409 -33.62069,-1.2946 -50.40393,-1.98905c-5.26753,-0.21796 -10.43674,-0.68526 -15.67397,-1.26717c-2.46281,-0.27365 -6.60496,-4.48591 -7.14089,-2.06659c-6.56466,29.63477 -9.10794,60.10438 -12.33652,90.22015c-0.8738,8.15068 -1.79417,17.62565 -0.48062,25.8204c0.12856,0.80203 -0.21745,2.36094 0.59482,2.36311c14.16092,0.03776 28.64535,-2.51041 43.03986,-2.72558c57.5166,-0.85976 115.03744,-1.0539 172.55971,-1.08702c25.0739,-0.01444 50.14781,-0.00688 75.22172,-0.00688c4.57743,0 19.11516,2.69332 23.90328,0c1.1522,-0.64811 0,-12.39438 0,-13.97621c0,-16.59281 -1.57285,-33.04544 -3.81947,-49.42703c-1.94226,-14.16232 0,-30.03325 0,-44.30728c0,-0.43318 0.57496,-14.36656 0,-14.5126c-18.05109,-4.58498 -72.99189,-0.01049 -93.7734,0.00013" elementtype="path" fill="none" id="svg-doc2-137" stroke="#db7700" stroke-linecap="round" stroke-width="7" z-index="137" data-tool="path"></path>
+				
+				<path class="mainObject pathsvg-doc2-140" d="M566.99326,366.45594c15.79026,12.61259 47.51807,11.99009 66.51426,13.17735c49.22166,3.07635 98.66233,6.90242 147.98294,6.90242c4.42759,0 8.85518,0 13.28277,0c4.42759,0 8.85518,0 13.28277,0c12.51472,0 25.02944,0 37.54416,0c0.23458,0 4.86741,0.33558 5.01994,0c3.66742,-8.06832 -27.07371,-52.43406 -29.6321,-56.16586c-0.31833,-0.46434 -8.9274,-16.1244 -11.78244,-16.62334c-11.89622,-2.07895 -30.68658,5.4507 -42.53064,7.47302c-30.8942,5.27506 -61.52829,10.09678 -92.8924,10.09678c-47.7293,0 -97.67104,-3.00143 -145.69385,0c-2.76361,0.17273 4.15087,3.78708 6.65143,4.97644c5.8633,2.7888 10.47313,4.86263 15.20625,9.37747c12.05066,11.49493 17.62428,26.5755 28.02049,40.43712" elementtype="path" fill="none" id="svg-doc2-140" stroke="#ff0606" stroke-linecap="round" stroke-width="7" z-index="140" data-tool="path"></path>
+				
+				<path class="mainObject pathsvg-doc12-611" d="M752.54758,191.15666c60.35561,0 119.84804,9.77878 179.96088,15.11637c39.15202,3.47642 78.99811,3.18574 118.26975,4.37037c202.41311,6.10575 405.36592,0.89862 607.88943,1.83098c62.18846,0.2863 124.37661,0.63848 186.56501,0.93738c11.84292,0.05692 23.68587,0.10883 35.52884,0.15429c12.98751,0.04985 25.97758,0.14245 38.96532,0.08167c0.00695,-0.00003 0,-8.14517 0,-8.44283c0,-5.61918 0,-11.23837 0,-16.85755" elementtype="path" fill="none" id="svg-doc12-611" stroke="#ff0606" stroke-linecap="round" stroke-width="3" z-index="611" data-tool="path"></path>
+				
+				<path class="mainObject pathsvg-doc12-610" d="M1430.6338,182.5139c61.49091,0 123.13389,1.38204 184.61176,-0.08741c9.87426,-0.23602 23.52852,-5.3248 30.10212,-5.67078c52.08486,-2.74131 105.07001,-0.01093 157.23686,-0.01093" elementtype="path" fill="none" id="svg-doc12-610" stroke="#ff0606" stroke-linecap="round" stroke-width="3" z-index="610" data-tool="path"></path>
+				
+				<path class="mainObject pathsvg-doc12-609" d="M1801.55706,249.80871c8.74668,6.93195 62.13036,2.55559 73.7926,2.55559c13.73628,0 27.47257,0 41.20885,0c0.98095,0 2.55559,-0.47829 2.55559,-1.45924" elementtype="path" fill="none" id="svg-doc12-609" stroke="#ff0606" stroke-linecap="round" stroke-width="3" z-index="609" data-tool="path"></path>
+				
+				<path class="mainObject pathsvg-doc12-608" d="M1851.1086,216.97073c14.20297,5.13694 52.36996,0.55777 68.60514,0.55777" elementtype="path" fill="none" id="svg-doc12-608" stroke="#ff0606" stroke-linecap="round" stroke-width="3" z-index="608" data-tool="path"></path>
+				
+				<path class="mainObject pathsvg-doc12-607" d="M130.24595,124.15838c0,7.61474 0.18538,14.21745 3.22135,21.31568c8.29417,19.39213 38.8507,16.08177 48.04018,-1.64503c2.0893,-4.03034 1.91136,-10.64842 2.51232,-15.08537c0.23804,-1.75747 2.00178,-8.13586 0.72048,-10.01596c-24.51654,-35.97427 -121.18639,-0.28014 -107.88088,49.64149c9.8513,36.96158 94.22274,24.58163 119.27638,23.07212c6.40195,-0.38573 39.83564,1.48041 36.79461,-14.44402c-1.97983,-10.36742 -16.10922,-10.15712 -24.82335,-12.13681c-25.29871,-5.74741 -63.79023,-4.68115 -83.7827,14.75598c-10.75531,10.45655 -6.78022,33.29076 10.6214,31.08215" elementtype="path" fill="none" id="svg-doc12-607" stroke="#ff0606" stroke-linecap="round" stroke-width="3" z-index="607" data-tool="path"></path>
+				
+				
+				<path class="mainObject pathsvg-doc40-17" d="M962.8111273792092,437.13030746705704 L962.8111273792092,437.13030746705704" elementtype="path" fill="none" id="svg-doc40-17" stroke="#000000" stroke-linecap="round" stroke-width="7" z-index="17" data-tool="path"></path>
+				
+				<path class="mainObject pathsvg-doc40-6" d="M730.05857,136.33968c0,60.40534 70.32902,113.61325 127.00322,117.15748c15.35197,0.96006 35.56633,3.78438 49.35754,-4.54747c18.88727,-11.41059 32.92135,-40.5325 41.67777,-60.06817c10.13081,-22.60193 -20.02097,-50.11266 -12.8075,-62.2646c1.28526,-2.16516 14.02151,-2.53481 16.03092,-2.68744c12.08772,-0.91811 46.4177,-2.2363 53.1884,7.48697c4.80341,6.89807 10.19779,14.72015 13.12422,22.66331c2.06837,5.61413 4.13673,11.22827 6.2051,16.8424c12.92376,35.07878 -25.9811,25.05638 -50.18799,31.02548c-28.21641,6.95779 -53.54996,15.07173 -78.70594,29.46999c-11.16266,6.38905 -35.75097,21.91964 -36.97195,37.63163" elementtype="path" fill="none" id="svg-doc40-6" stroke="#f2f72b" stroke-linecap="round" stroke-width="10" z-index="6" data-tool="path"></path>
+			</g>
+		</svg>
+	</svg> 
+</div>
+</div>
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap.js"></script>
+
+<script>
+	var scale = 1,
+    panning = false,
+    xoff = 0,
+    yoff = 0,
+	//zoomCount = 100,
+	zoomCount = 0,
+    start = {x: 0, y: 0},
+	svgElem = document.getElementById("svgelement"),
+	gElem = document.getElementById("svgGroup"),
+	rElem = document.getElementById("rect-element");
+	var initialPointerOffsetX;
+    var initialPointerOffsetX2;
+    var initialPointerOffsetY;
+    var initialPointerOffsetY2;
+	var pinchOffsetX;
+	var pinchOffsetY;
+	var tapped = false;
+	var touchmoveCount = 0;
+	var capture = false;
+	var targetPinchDistance;
+	var gTransform;
+	
+	
+	gElem.style.transform = "matrix(1,0,0,1,1,1)";
+	gElem.setAttribute('transform','matrix(1,0,0,1,1,1)');
+	
+	$('.zoom-count').text(zoomCount);
+	
+	/*Dragging Code Start*/
+	
+	svgElem.onmousedown = function(e) {
+		e.preventDefault();
+		
+		gTransform = $('#svgGroup')[0].getAttribute('transform').match(/-?[\d\.]+/g).toString().split(',');
+		
+		if(e.type == 'mousedown'){
+			start = {x: e.pageX - xoff, y: e.pageY - yoff};    
+		}
+		if(e.type == 'touchstart'){
+			start = {x: e.originalEvent.touches[0].pageX - xoff , y: e.originalEvent.touches[0].pageY - yoff};
+		}
+		
+		panning = true;
+	}
+	
+	svgElem.onmouseup = function(e) {
+	  panning = false;
+	}
+
+	svgElem.onmousemove = function(e) {
+	  e.preventDefault();         
+	  if (!panning) {
+		return;
+	  }
+	  
+	  if(e.type == 'mousemove'){
+		  xoff = (e.pageX - start.x);
+		  yoff = (e.pageY - start.y);
+	  }
+	  
+	  if(e.type == 'touchmove'){
+		xoff = (e.originalEvent.touches[0].pageX - start.x);
+		yoff = (e.originalEvent.touches[0].pageY - start.y);
+	  }
+	  
+	  setTransform();
+	}
+	/*Dragging Code End*/
+	
+	function zoomIn(funName){
+		var docW = document.body.clientWidth / 2;
+		var docH = document.body.clientHeight / 2;
+		var gTransform = document.getElementById('svgGroup').style.transform.match(/-?[\d\.]+/g).toString().split(',');
+			
+		var xs = (docW - parseFloat(gTransform[0])) / scale;
+		var ys = (docH - parseFloat(gTransform[1])) / scale;
+			
+		switch(funName){
+			
+			case 'zoomIn':
+				if(!(scale >= 30)){
+					scale *= 1.05;
+					if(zoomCount < 100)
+					{
+						zoomCount += 10;	
+					}
+					else{
+						zoomCount += 10;	
+					}
+					var x = Math.round(zoomCount);
+				} 
+				break;
+			case 'zoomOut':
+			
+				if(!(scale <= 0.40))
+				{
+					scale /= 1.05;
+					if(zoomCount <= 100)
+					{
+						zoomCount -= 10;	
+					}
+					else{
+						zoomCount -= 10;	
+					}
+					var x = Math.round(zoomCount);
+				}
+				break;
+		}
+			
+		xoff = docW -(xs * scale);
+		yoff = docH -(ys * scale);
+			
+		setTransform();
+		$('.zoom-count').text(x);
+	}
+	
+	function setTransform() {
+	  gElem.style.transform = "matrix(" + gTransform[0] + ",0,0," + gTransform[0] + "," + xoff + "," + yoff + ")";
+	  gElem.setAttribute('transform','matrix(' + gTransform[0] + ',0,0,' + gTransform[0] + ',' + xoff + ',' + yoff + ')');
+	  
+	}
+	
+	/*Mouse Wheel*/
+	svgElem.onwheel = function(event) {
+	 //event.preventDefault();
+		
+		gTransform = $('#svgGroup')[0].getAttribute('transform').match(/-?[\d\.]+/g).toString().split(',');
+		//gTransform = $('#svgGroup')[0].style.transform.match(/-?[\d\.]+/g).toString().split(',');
+		console.log(parseFloat(gTransform));
+		
+		
+		var xs = (event.clientX - parseFloat(gTransform[4])) / gTransform[0],
+			ys = (event.clientY - parseFloat(gTransform[5])) / gTransform[0],
+			delta = (event.wheelDelta ? event.wheelDelta : -event.deltaY);
+		
+		if(delta > 0)
+		{
+		console.log('mouse down');
+			if(!(gTransform[0] >= 30)){
+				gTransform[0] *= 1.05;
+				
+				//zoomCount = scale* scale;
+				if(zoomCount < 100)
+				{
+					//zoomCount += 10;	
+					zoomCount += scale;
+				}
+				else{
+					//zoomCount += 10;
+					zoomCount += scale;
+				}
+				var x = Math.round(zoomCount);
+			}
+		}
+		
+		else if(delta < 0)
+		{
+		console.log('mouse up');
+			if(!(gTransform[0] <= 0.40)){
+				gTransform[0] /= 1.05;
+				
+				zoomCount = zoomCount * scale;
+				/*if(zoomCount <= 100)
+				{
+					zoomCount -= 10;	
+				}
+				else{
+					zoomCount -= 10;	
+				}*/
+				var x = Math.round(zoomCount);
+			}
+		}
+		
+		xoff = event.clientX - xs * gTransform[0];
+		yoff = event.clientY - ys * gTransform[0];
+		setTransform();
+		$('.zoom-count').text(x);
+		
+    }
+	
+	//Double Tap
+	/*var tap = false;
+	
+	svgElem.on('touchstart', function(event){
+
+		//if (event.touches.length > 1)
+		//{
+			console.log('two finger');
+		//}
+		//else{
+		//	console.log('one finger');
+		//}
+		
+
+		if(!tap)
+		{
+			tap = setTimeout(function(){
+				tap = null;	
+			},300)
+		}
+		else
+		{
+			clearTimeout(tap);
+			tap = null;
+			
+			var xs = (event.originalEvent.touches[0].clientX - xoff) / scale;
+			var ys = (event.originalEvent.touches[0].clientY - yoff) / scale;
+			
+			scale *= 2.59374;
+			
+			xoff = event.originalEvent.touches[0].clientX - xs * scale;
+			yoff = event.originalEvent.touches[0].clientY - ys * scale;
+			
+			setTransform();
+		}
+	});*/
+	
+	/*document.getElementById('svgelement').addEventListener('touchstart', touchStart);
+	document.getElementById('svgelement').addEventListener('touchmove', touchMove);
+	
+	function touchStart(event){
+		event.preventDefault();
+		
+		initialPointerOffsetX = event.touches[0].pageX;
+		initialPointerOffsetY = event.touches[0].pageY;
+		
+		if(event.touches.length === 2){
+			
+			initialPointerOffsetX2 = event.touches[1].pageX;
+			initialPointerOffsetY2 = event.touches[1].pageY;	
+			console.log(initialPointerOffsetX + ',' + initialPointerOffsetY + ',' + initialPointerOffsetX2 + ','+ initialPointerOffsetY2);
+			
+			pinchOffsetX = (initialPointerOffsetX + initialPointerOffsetX2) / 2;
+            pinchOffsetY = (initialPointerOffsetY + initialPointerOffsetY2) / 2;
+			console.log(pinchOffsetX + ','+ pinchOffsetY);
+			
+			initialPinchDistance = Math.sqrt(((initialPointerOffsetX - initialPointerOffsetX2) * (initialPointerOffsetX - initialPointerOffsetX2)) - ((initialPointerOffsetY - initialPointerOffsetY2) * (initialPointerOffsetY - initialPointerOffsetY2)));
+		}	
+		touchmoveCount = 0;
+		capture = true;
+	}
+	
+	function touchMove(event){
+		event.preventDefault();
+		
+		if(capture === false)
+		{
+			return false;
+		}	
+		
+		pointerX = event.touches[0].clientX;
+		pointerY = event.touches[0].clientY;
+		
+		touchmoveCount++;
+		
+		if(event.touches.length > 1){
+			pointerX2 = event.touches[1].clientX;
+			pointerY2 = event.touches[1].clientY;
+			
+			targetPinchDistance = Math.sqrt(((pointerX - pointerX2) * (pointerX - pointerX2)) + ((pointerY - pointerY2) * (pointerY - pointerY2)));
+			
+			console.log(pointerX + ','+ pointerY + ',' + pointerX2 + ',' + pointerY2);
+			console.log(targetPinchDistance);			
+			
+			if(initialPinchDistance === null){
+				initialPinchDistance = targ;etPinchDistance
+			}
+		}
+	
+	}*/
+	
+		
+		
+</script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Demo Application - Angular Js</title>
+    <meta name="description" content="Demo Application - Angular Js">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="bootstrap.css">
+ </head>
+<body>
+
+<canvas id="canvas" >
+
+</canvas>
+
+<script type="text/javascript" src="jquery.min.js"></script>
+
+<script type="text/javascript" src="bootstrap.js"></script>
+<script>
+var zoomIntensity = 0.2;
+
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext("2d");
+
+var a = window.innerWidth;
+var b = window.innerHeight;
+
+var width = a;
+var height = b;
+
+var scale = 1;
+var originx = 0;
+var originy = 0;
+var visibleWidth = width;
+var visibleHeight = height;
+
+console.log('width :' + a + ' , Height :' + b);
+document.getElementById("canvas").setAttribute("width" , a);
+document.getElementById("canvas").setAttribute("height" , b); 
+
+function draw(){
+    // Clear screen to white.
+    context.fillStyle = "white";
+    context.fillRect(originx,originy,a/scale,b/scale);
+    // Draw the black square.
+    context.fillStyle = "black";
+    context.fillRect(100,100,300,300);
+}
+// Draw loop at 60FPS.
+setInterval(draw, 1000/60);
+
+
+canvas.onmousewheel = function (event){
+    event.preventDefault();
+    // Get mouse offset.
+	
+    var mousex = event.clientX - canvas.offsetLeft;
+    var mousey = event.clientY - canvas.offsetTop;
+	
+	// Normalize wheel to +1 or -1.
+    var wheel = event.wheelDelta/120;
+	
+    // Compute zoom factor.
+    var zoom = Math.exp(wheel*zoomIntensity);
+	
+    // Translate so the visible origin is at the context's origin.
+    context.translate(originx, originy);
+  
+    // Compute the new visible origin. Originally the mouse is at a
+    // distance mouse/scale from the corner, we want the point under
+    // the mouse to remain in the same place after the zoom, but this
+    // is at mouse/new_scale away from the corner. Therefore we need to
+    // shift the origin (coordinates of the corner) to account for this.
+    originx -= mousex/(scale*zoom) - mousex/scale;
+    originy -= mousey/(scale*zoom) - mousey/scale;
+	
+    
+    // Scale it (centered around the origin due to the trasnslate above).
+    context.scale(zoom, zoom);
+	console.log(zoom,zoom);
+	//console.log(zoom, zoom));
+	
+    // Offset the visible origin to it's proper position.
+    context.translate(-originx, -originy);
+	
+    // Update scale and others.
+    scale *= zoom;
+    //visibleWidth = width / scale;
+    //visibleHeight = height / scale;
+}
+</script>
+
+</body>
+</html>

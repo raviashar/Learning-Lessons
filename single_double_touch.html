@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Single-Double Click and Long Press</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<style>
+			html, body {width:100%; height:100%; padding: 0px; margin: 0px;}
+			h5{ font-weight: bold; margin: 0px; font-size: 15px;}
+			.abc{ height: 200px; width: 200px; background: #dddddd; text-align: center; vertical-align: middle; display: table-cell;}
+		</style>
+	</head>
+	<body>
+	<div class="abc">
+		<h5 class="title">Tap Me</h5>
+	</div>
+	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css"></script>
+	
+	<script>
+		/*var tapped = false;
+		$('.abc').on('touchstart', function(e){
+			if(!tapped)
+			{
+				tapped = setTimeout(function(){
+					tapped = null;
+					$('.abc .title').text('single tap');
+					
+				},300);	
+			}
+			else
+			{
+				clearTimeout(tapped);
+				tapped = null;
+				$('.abc .title').text('double tap');
+			}
+		});*/
+		
+			
+			var longpress = 200;
+			var start = new Date().getTime();
+			//var finger = event
+			console.log(start + 'first');
+
+			$( ".abc" ).on( 'touchstart', function( e ) {
+				start = new Date().getTime();
+				console.log(start + 'second');
+			});
+			
+			$( ".abc" ).on( 'touchend', function( e ) {
+				if ( new Date().getTime() >= ( start + longpress )  ) {
+				console.log(start + 'third');
+				   alert('long press!');   
+				} else {
+				   alert('short press!');   
+				}
+				start = 0;
+			});
+	</script>
+	
+	</body>
+</html>

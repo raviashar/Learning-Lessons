@@ -1,0 +1,266 @@
+<!--Toolbar Menu vertical scrolling using jquery and css translate3d property-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+    	<meta name="viewport" content="width=device-width" />
+
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<style>
+			html, body {width:100%; height:100%; padding: 0px; margin: 0px;}
+			ul, li{ padding: 0px; margin: 0px;}
+			li{list-style-type: none;}
+			header{ height: 70px; background: #ddd;}
+			
+			.icon-menu {overflow: hidden; position: absolute; background: #cccccc; left: 0px; top: 10px; z-index: 999; }
+			.icon-list{ padding: 5px 10px; position: relative; z-index: 1;}
+			.icon-toolbar{  overflow: hidden; position: relative; z-index: 1;}
+			.abc{ /*position: absolute; z-index: 999;*/ transition: all 0.5s ease;}
+			.tool-arrow{ text-align: center;}
+			.down-arrow{ transform: rotate(180deg);}
+			.tool-arrow span{ height: 30px; width: 30px; display: block;}
+			.disabled{ opacity: 0.5;}
+			
+			.tool-submenu{ position: absolute; top: 0px; left: 55px; z-index: 2; width: 110px; display: none; background: #ededed; padding: 5px; border-radius: 3px;}
+			.tool-submenu.active{display: block;}
+			.tool-submenu li{display: inline-block;}
+		</style>
+	</head>
+	<body>
+		
+    <div id="content">
+		<div class="icon-menu">
+			<div class="icon-menu-inner">
+				<div class="tool-arrow icon-list up-arrow disabled" onclick="scrollUp()" style="display: none;">
+						<span>
+							<svg viewBox="0 0 24 24" id="img__scroll-up" width="100%" height="100%"><path d="M9 17l3-3 3 3m-6-6l3-3 3 3" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+						</span>
+				</div>
+				<div class="icon-toolbar">
+					<ul class="abc">
+						<li class="icon-list background" onclick="submenuOpen('background')">
+							<img src="images/background.png">
+						</li>
+						<li class="icon-list"><img src="images/comments-list.png"></li>
+						<li class="icon-list emoticon 3" onclick="submenuOpen('emoticon')">
+							<img src="images/emoticons.png">
+						</li>
+						<li class="icon-list"><img src="images/eraser.png"></li>
+						<li class="icon-list"><img src="images/redo.png"></li>
+						<li class="icon-list"><img src="images/highlighter.png"></li>
+						<li class="icon-list"><img src="images/iconfinder.png"></li>
+						<li class="icon-list"><img src="images/pan.png"></li>
+						<li class="icon-list"><img src="images/pen.png"></li>
+						<li class="icon-list"><img src="images/select.png"></li>
+						<li class="icon-list shape" onclick="submenuOpen('shape')">
+							<img src="images/shapes.png">
+						</li>
+						<li class="icon-list"><img src="images/sticky-notes.png"></li>
+						<li class="icon-list"><img src="images/upload.png"></li>
+						<li class="icon-list"><img src="images/text.png"></li>
+					</ul>
+				</div>
+				<div class="tool-arrow icon-list down-arrow" onclick="scrollDown()" style="display: none;">
+						<span>
+							<svg viewBox="0 0 24 24" id="img__scroll-up" width="100%" height="100%"><path d="M9 17l3-3 3 3m-6-6l3-3 3 3" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+						</span>
+				</div>
+			</div>
+			<div class="more-tool icon-list" style="background: #999999;">
+				<img src="images/more_tools.png" alt="">
+			</div>
+		</div>
+		
+		<div class="tool-submenu background-menu">
+			<ul>
+				<li><img src="images/background.png"></li>
+				<li><img src="images/background.png"></li>
+				<li><img src="images/background.png"></li>
+				<li><img src="images/background.png"></li>
+			</ul>
+		</div>
+		
+		<div class="tool-submenu emoticon-menu">
+			<ul>
+				<li><img src="images/emoticons.png"></li>
+				<li><img src="images/emoticons.png"></li>
+				<li><img src="images/emoticons.png"></li>
+				<li><img src="images/emoticons.png"></li>
+			</ul>
+		</div>
+		
+		<div class="tool-submenu shape-menu">
+			<ul>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+				<li><img src="images/shapes.png"></li>
+			</ul>
+		</div>
+		
+    </div>
+	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css"></script>
+	<script>
+		
+		
+
+		var fixed_toolheight, scroll_position, toolH, difference_height, vheight, tool_wrapH, tool_arrow, newtoolH, newtool_wrapH;
+		
+		
+		$(document).ready(toolbarResize);
+		scroll_position = 0; 	
+		tool_wrapH = $('.icon-menu').height();
+		tool_pos = $('.icon-toolbar').offset().top;
+		newtool_wrapH = tool_wrapH + tool_pos ;
+		toolH = $('.icon-toolbar').height();
+		
+		vheight = $('.icon-list').innerHeight();
+		
+		tool_arrow = $('.tool-arrow').outerHeight();
+		newtoolH  = newtool_wrapH + (tool_arrow * 2);
+		
+		function tool_cal(){
+			fixed_toolheight = $('.icon-toolbar').height();
+			difference_height = toolH - fixed_toolheight; 
+		}
+
+		function toolbarResize(){
+			var windowH = $(window).height();
+			
+			$('.icon-toolbar .abc').css({'transform' : 'translate3d(0px,0px,0px)'});
+			scroll_position = 0;
+			
+			if(windowH > newtool_wrapH)
+			{
+				$('.icon-toolbar').height(toolH);
+				$('.tool-arrow').hide();
+			}
+			else{
+				var diffH = newtoolH - windowH;
+				var x = diffH / vheight;
+				var y = Math.round(x);
+				var z = y * vheight; 
+				var egg = toolH - z;
+				
+				$('.icon-toolbar').height(egg - 40);
+				$('.tool-arrow').show();
+			}
+		}
+
+		function scrollDown(){
+			tool_cal();
+			
+			if(scroll_position != difference_height)
+			{
+				scroll_position = scroll_position + vheight;
+				$('.abc').css('transform', 'translate3d( 0px,' + (-scroll_position) + 'px, 0px)');
+			}
+			else{
+				$('.abc').stop();
+			}
+		}
+		
+
+		function scrollUp(){
+			tool_cal();
+			if(scroll_position !== 0)
+			{
+				scroll_position = scroll_position - vheight;
+				$('.abc').css('transform', 'translate3d( 0px,' + (-scroll_position) + 'px, 0px)');
+			}
+			else{
+				$('.abc').stop();
+			}
+		}		
+
+		$('.icon-toolbar').bind('mousewheel onmousewheel DOMMouseScroll',function(event) {
+			
+			var a = window.event || event;
+			var delta = Math.max(-1, Math.min(1, (a.wheelDelta || -a.detail )));
+
+			if(delta > 0)
+			{
+				scrollUp();		
+			}
+			else{
+				scrollDown();
+			}
+			
+			event.returnValue = false;
+			if(event.preventDefault){
+				event.preventDefault();
+			}
+
+		});
+		
+		window.onresize = function(){
+			toolbarResize();
+		}
+		
+		
+		function submenuOpen(toolClass){
+			
+			var toolPos = $('.icon-list.' + toolClass).offset().top;
+			$('.tool-submenu').removeClass('active').css({'top':''});
+			
+			
+			switch(toolClass){
+				
+				case 'background':
+					var className = $('div.background-menu');
+					className.css({'top': toolPos + 'px'}).addClass('active');
+					break;
+					
+				case 'emoticon':
+					var className = $('div.emoticon-menu');
+					className.css({'top': toolPos + 'px'}).addClass('active');
+					break;
+					
+				case 'shape':
+					var className = $('div.shape-menu');
+					className.css({'top': toolPos + 'px'}).addClass('active');
+					break;
+					
+			}
+			
+		}
+		
+		
+		$(document).on('click',function(event){
+			var x = $('.background, .emoticon, .shape');
+			console.log(!x.is(event.target) && x.has(event.target).length);
+			if(!x.is(event.target) && x.has(event.target).length === 0)
+			{
+				$('.tool-submenu').removeClass('active').css({'top':''});
+			}
+		});
+		
+
+	</script>
+
+
+	</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Demo Application - Angular Js</title>
+    <meta name="description" content="Demo Application - Angular Js">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="bootstrap.css">
+	<style>
+		html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#document {
+  width: 100%;
+  height: 100%;
+  transform-origin: 0px 0px;
+  transform: scale(1) translate(0px, 0px);
+}
+	</style>
+	
+ </head>
+<body>
+
+<div id="document" width="1920px" height="1170px">
+  <img style="width: 100%"
+       src="default.png" />
+</div> 
+
+
+		<svg>
+			<!--<rect width="100%" height="100%" id="rect-element" fill="none" pointer-events="all" style="fill: rgb(0,0,0)"></rect>-->
+			<g id="svgGroup">
+				
+				<path class="mainObject pathsvg-doc43-8" d="M91.96197,27.44206c0,13.90369 -5.23374,41.7566 9.21071,50.02397c17.72285,10.14378 43.02311,-14.40684 53.8431,-25.7817c3.96264,-4.16585 12.73829,-12.81768 9.75732,-19.69269c-7.89094,-18.19893 -59.80786,-9.40959 -74.59599,-4.2707c-11.98788,4.1658 -23.83166,13.63596 -7.34599,22.3829" elementtype="path" fill="none" id="svg-doc43-8" stroke="#0d05a5" stroke-linecap="round" stroke-width="1" z-index="8" data-tool="path"></path>
+				</g>
+				</svg>
+				</svg>
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap.js"></script>
+
+<script>
+var scale = 1,
+    panning = false,
+    xoff = 0,
+    yoff = 0,
+    start = {x: 0, y: 0},
+	svgElem = document.getElementById("svgelement"),
+	gElem = document.getElementById("svgGroup"),
+    doc = document.getElementById("document");
+	
+
+function setTransform() {
+  //doc.setAttribute("transform","translate(" + xoff + "px, " + yoff + "px) scale(" + scale + ")");
+  doc.style.transform = "translate(" + xoff + "px, " + yoff + "px) scale(" + scale + ")";
+}
+
+doc.onmousedown = function(e) {
+  e.preventDefault();
+  start = {x: e.clientX - xoff, y: e.clientY - yoff};    
+  panning = true;
+}
+
+doc.onmouseup = function(e) {
+  panning = false;
+}
+
+doc.onmousemove = function(e) {
+  e.preventDefault();         
+  if (!panning) {
+    return;
+  }
+  xoff = (e.clientX - start.x);
+  yoff = (e.clientY - start.y);
+  setTransform();
+}
+
+doc.onwheel = function(e) {
+    e.preventDefault();
+    // take the scale into account with the offset
+    var xs = (e.clientX - xoff) / scale,
+        ys = (e.clientY - yoff) / scale,
+        delta = (e.wheelDelta ? e.wheelDelta : -e.deltaY);
+
+    // get scroll direction & set zoom level
+    if(delta > 0)
+	{
+		scale *= 1.2;
+	}
+	else if(delta < 0){
+		scale /= 1.2;
+	}
+	//(delta > 0) ? (scale *= 1.2) : (scale /= 1.2);
+
+    // reverse the offset amount with the new scale
+    xoff = e.clientX - xs * scale;
+    yoff = e.clientY - ys * scale;
+
+    setTransform();          
+}
+
+
+				doc.addEventListener('touchstart', function (event) {
+                    event.preventDefault();
+
+                    touchLength = event.touches.length;
+
+                    initialPointX = event.touches[0].pageX;
+                    initialPointY = event.touches[0].pageY;
+
+                    if (touchLength === 2) {
+                        initialPointX2 = event.touches[1].pageX;
+                        initialPointY2 = event.touches[1].pageY;
+
+                        centerInitialX = (initialPointX + initialPointX2) / 2; //Center point X
+                        centerInitialY = (initialPointY + initialPointY2) / 2; //Center point Y
+
+                        var initialcenterOffsetX = (initialPointX - initialPointX2);
+                        var initialcenterOffsetY = (initialPointY - initialPointY2);
+
+                        var pointOffsetPowX = Math.pow(initialcenterOffsetX, 2);
+                        var pointOffsetPowY = Math.pow(initialcenterOffsetY, 2);
+
+                        var pointOffseSum = pointOffsetPowX + pointOffsetPowY;
+
+                        initialPinchDistance = Math.sqrt(pointOffseSum); //Distance between two finger
+                    }
+            });
+			
+			doc.addEventListener('touchmove', function (event) {
+				event.preventDefault();
+				
+				 touchLength = event.touches.length;
+
+                    movePointX = event.touches[0].pageX;
+                    movePointY = event.touches[0].pageY;
+
+                    if (touchLength === 2) {
+                        svgShapeService.mouseWeelStart();
+                        svgShapeService.removeElementZoomingTime();
+
+                        movePointX2 = event.touches[1].pageX;
+                        movePointY2 = event.touches[1].pageY;
+
+                        centerOffsetX = (movePointX + movePointX2) / 2; //Center point X
+                        centerOffsetY = (movePointY + movePointY2) / 2; //Center point Y
+
+                        var moveOffsetNewX = (movePointX - movePointX2);
+                        var moveOffsetNewY = (movePointY - movePointY2);
+
+                        var movePowX = Math.pow(moveOffsetNewX, 2);
+                        var movePowY = Math.pow(moveOffsetNewY, 2);
+
+                        var moveOffseSum = movePowX + movePowY;
+
+                        targetPinchDistance = Math.sqrt(moveOffseSum); //Distance between two finger
+                        var xyz = (targetPinchDistance - initialPinchDistance); //Distance difference
+
+                        gTransform = gElem.getAttribute('transform').match(/-?[\d\.]+/g).toString().split(',');
+
+                        var xs = (centerOffsetX - parseFloat(gTransform[0])) / gTransform[2];
+                        var ys = (centerOffsetY - parseFloat(gTransform[1])) / gTransform[2];
+
+                        if (xyz > 0) {
+                            if (!(gTransform[2] >= 8)) {
+                                gTransform[2] *= 1.01;
+                                that.$rootScope.zoomCount = Math.round(percentage * gTransform[2]); //Zoom Counter
+                            }
+                            initialPinchDistance = targetPinchDistance;
+                        }
+
+                        if (xyz < 0) {
+                            if ((gTransform[2] > 0.3)) {
+                                gTransform[2] /= 1.01;
+
+                                that.$rootScope.zoomCount = Math.round(percentage * gTransform[2]); //Zoom Counter
+
+                            }
+                            initialPinchDistance = targetPinchDistance;
+                        }
+
+                        xoff = centerOffsetX - xs * gTransform[2];
+                        yoff = centerOffsetY - ys * gTransform[2];
+						
+						setTransform();
+					}
+			});
+</script>
+
+</body>
+</html>
